@@ -10,9 +10,19 @@
   }
 </style>
 
+<script type="text/javascript">
+  function openModal() {
+    console.log('Open modal...')
+    document.querySelector('slide-over').setAttribute('open', 'true');
+  }
+</script>
+
 <body>
   <h1>Web Component Template</h1>
   <div style="display: grid; grid-template-columns: repeat(2,minmax(0,1fr));">
-    <my-component text="Hello World"></my-component>
+    <div>
+      <button type="button" onClick="openModal()">open</button>
+      <slide-over></slide-over>
+    </div>
   </div>
 </body>
