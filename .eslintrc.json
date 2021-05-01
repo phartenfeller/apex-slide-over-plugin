@@ -1,0 +1,17 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": ["airbnb-base", "prettier"],
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": 1,
+    "import/no-extraneous-dependencies": 0,
+    "class-methods-use-this": 0
+  },
+  "plugins": ["prettier"]
+}
