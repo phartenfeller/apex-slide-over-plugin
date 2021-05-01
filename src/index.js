@@ -5,6 +5,9 @@ class SlideOver extends LitElement {
   @property({ type: String, reflect: true })
   open = 'false';
 
+  @property({ type: String })
+  header = '';
+
   initialized = false;
 
   that = this;
@@ -58,6 +61,44 @@ class SlideOver extends LitElement {
         transform: translateX(var(--translate));
         transition: transform 0.35s ease-in-out;
       }
+
+      .slide-header {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .slide-header-text {
+        margin: 0;
+        color: #1f2937;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+          'Noto Color Emoji';
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .close-button {
+        display: flex;
+        padding: 4px;
+        border: none;
+        background-color: transparent;
+        color: #9ca3af;
+        border: 2px solid transparent;
+        cursor: pointer;
+        line-height: inherit;
+        border-radius: 8px;
+      }
+
+      .close-button:hover {
+        color: #4b5563;
+      }
+
+      .close-button:focus {
+        border-color: #9ca3af;
+      }
     `;
   }
 
@@ -65,12 +106,32 @@ class SlideOver extends LitElement {
     return html`<div id="slide-wrapper" class="slide-closed">
       <div id="layover" class="layover" @click="${this.close}"></div>
       <div class="slide-over">
-        <div>
-          <h1>test</h1>
-          <button type="button" id="test-close" @click="${this.close}">
-            close
+        <header class="slide-header">
+          <h2 class="slide-header-text">${this.header}</h2>
+          <button
+            type="button"
+            id="test-close"
+            class="close-button"
+            @click="${this.close}"
+          >
+            <svg
+              style="width: 1.5rem; height: 1.5rem;"
+              x-description="Heroicon name: outline/x"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
           </button>
-        </div>
+        </header>
       </div>
     </div>`;
   }
