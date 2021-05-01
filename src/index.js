@@ -99,6 +99,10 @@ class SlideOver extends LitElement {
       .close-button:focus {
         border-color: #9ca3af;
       }
+
+      .slide-content {
+        padding: 16px;
+      }
     `;
   }
 
@@ -132,6 +136,9 @@ class SlideOver extends LitElement {
             </svg>
           </button>
         </header>
+        <main class="slide-content">
+          <slot name="content">Content Here</slot>
+        </main>
       </div>
     </div>`;
   }

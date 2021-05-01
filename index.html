@@ -22,7 +22,12 @@
   <div style="display: grid; grid-template-columns: repeat(2,minmax(0,1fr));">
     <div>
       <button type="button" onClick="openModal()">open</button>
-      <slide-over header="Header here"></slide-over>
+      <slide-over header="Header here">
+        <div slot="content">
+          <h2>This is the body</h2>
+          <input type="number">
+        </div>
+      </slide-over>
     </div>
   </div>
 </body>
