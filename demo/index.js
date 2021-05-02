@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/@lit/reactive-element/development/css-tag.js":
@@ -8,6 +7,7 @@
   \*******************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "supportsAdoptingStyleSheets": () => (/* binding */ supportsAdoptingStyleSheets),
@@ -130,6 +130,7 @@ const getCompatibleStyle = supportsAdoptingStyleSheets
   \***************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "legacyPrototypeMethod": () => (/* binding */ legacyPrototypeMethod),
@@ -210,6 +211,7 @@ const decorateProperty = ({ finisher, descriptor, }) => (protoOrDescriptor, name
   \*************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "customElement": () => (/* binding */ customElement)
@@ -267,6 +269,7 @@ const customElement = (tagName) => (classOrDescriptor) => typeof classOrDescript
   \************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "eventOptions": () => (/* binding */ eventOptions)
@@ -326,6 +329,7 @@ function eventOptions(options) {
   \*******************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "property": () => (/* binding */ property)
@@ -432,6 +436,7 @@ function property(options) {
   \********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "queryAll": () => (/* binding */ queryAll)
@@ -490,6 +495,7 @@ function queryAll(selector) {
   \*******************************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "queryAssignedNodes": () => (/* binding */ queryAssignedNodes)
@@ -565,6 +571,7 @@ function queryAssignedNodes(slotName = '', flatten = false, selector = '') {
   \**********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "queryAsync": () => (/* binding */ queryAsync)
@@ -637,6 +644,7 @@ function queryAsync(selector) {
   \****************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "query": () => (/* binding */ query)
@@ -710,6 +718,7 @@ function query(selector, cache) {
   \****************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "state": () => (/* binding */ state)
@@ -754,6 +763,7 @@ function state(options) {
   \****************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CSSResult": () => (/* reexport safe */ _css_tag_js__WEBPACK_IMPORTED_MODULE_0__.CSSResult),
@@ -1639,115 +1649,60 @@ if (DEV_MODE) {
 
 /***/ }),
 
-/***/ "./node_modules/lit-element/development/decorators.js":
-/*!************************************************************!*\
-  !*** ./node_modules/lit-element/development/decorators.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/apex/initRegion.js":
+/*!********************************!*\
+  !*** ./src/apex/initRegion.js ***!
+  \********************************/
+/***/ (() => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "decorateProperty": () => (/* reexport safe */ _lit_reactive_element_decorators_base_js__WEBPACK_IMPORTED_MODULE_0__.decorateProperty),
-/* harmony export */   "legacyPrototypeMethod": () => (/* reexport safe */ _lit_reactive_element_decorators_base_js__WEBPACK_IMPORTED_MODULE_0__.legacyPrototypeMethod),
-/* harmony export */   "standardPrototypeMethod": () => (/* reexport safe */ _lit_reactive_element_decorators_base_js__WEBPACK_IMPORTED_MODULE_0__.standardPrototypeMethod),
-/* harmony export */   "customElement": () => (/* reexport safe */ _lit_reactive_element_decorators_custom_element_js__WEBPACK_IMPORTED_MODULE_1__.customElement),
-/* harmony export */   "property": () => (/* reexport safe */ _lit_reactive_element_decorators_property_js__WEBPACK_IMPORTED_MODULE_2__.property),
-/* harmony export */   "state": () => (/* reexport safe */ _lit_reactive_element_decorators_state_js__WEBPACK_IMPORTED_MODULE_3__.state),
-/* harmony export */   "eventOptions": () => (/* reexport safe */ _lit_reactive_element_decorators_event_options_js__WEBPACK_IMPORTED_MODULE_4__.eventOptions),
-/* harmony export */   "query": () => (/* reexport safe */ _lit_reactive_element_decorators_query_js__WEBPACK_IMPORTED_MODULE_5__.query),
-/* harmony export */   "queryAll": () => (/* reexport safe */ _lit_reactive_element_decorators_query_all_js__WEBPACK_IMPORTED_MODULE_6__.queryAll),
-/* harmony export */   "queryAsync": () => (/* reexport safe */ _lit_reactive_element_decorators_query_async_js__WEBPACK_IMPORTED_MODULE_7__.queryAsync),
-/* harmony export */   "queryAssignedNodes": () => (/* reexport safe */ _lit_reactive_element_decorators_query_assigned_nodes_js__WEBPACK_IMPORTED_MODULE_8__.queryAssignedNodes)
-/* harmony export */ });
-/* harmony import */ var _lit_reactive_element_decorators_base_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lit/reactive-element/decorators/base.js */ "./node_modules/@lit/reactive-element/development/decorators/base.js");
-/* harmony import */ var _lit_reactive_element_decorators_custom_element_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lit/reactive-element/decorators/custom-element.js */ "./node_modules/@lit/reactive-element/development/decorators/custom-element.js");
-/* harmony import */ var _lit_reactive_element_decorators_property_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @lit/reactive-element/decorators/property.js */ "./node_modules/@lit/reactive-element/development/decorators/property.js");
-/* harmony import */ var _lit_reactive_element_decorators_state_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @lit/reactive-element/decorators/state.js */ "./node_modules/@lit/reactive-element/development/decorators/state.js");
-/* harmony import */ var _lit_reactive_element_decorators_event_options_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @lit/reactive-element/decorators/event-options.js */ "./node_modules/@lit/reactive-element/development/decorators/event-options.js");
-/* harmony import */ var _lit_reactive_element_decorators_query_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @lit/reactive-element/decorators/query.js */ "./node_modules/@lit/reactive-element/development/decorators/query.js");
-/* harmony import */ var _lit_reactive_element_decorators_query_all_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-all.js */ "./node_modules/@lit/reactive-element/development/decorators/query-all.js");
-/* harmony import */ var _lit_reactive_element_decorators_query_async_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-async.js */ "./node_modules/@lit/reactive-element/development/decorators/query-async.js");
-/* harmony import */ var _lit_reactive_element_decorators_query_assigned_nodes_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-assigned-nodes.js */ "./node_modules/@lit/reactive-element/development/decorators/query-assigned-nodes.js");
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-/*
- * IMPORTANT: For compatibility with tsickle and the Closure JS compiler, all
- * property decorators (but not class decorators) in this file that have
- * an @ExportDecoratedItems annotation must be defined as a regular function,
- * not an arrow function.
- */
+/* global apex */
+// create the webcomponent as a child of the regionid
+// and move the existing rest into it as a slot
+var initAPEXRegion = function initAPEXRegion(_ref) {
+  var regionId = _ref.regionId,
+      title = _ref.title,
+      width = _ref.width,
+      direction = _ref.direction;
+  console.log({
+    regionId: regionId,
+    title: title,
+    width: width
+  });
 
+  try {
+    var region = document.querySelector("#".concat(regionId));
+    var parentNode = region.parentNode;
+    region.slot = 'content';
+    var regionClone = region.cloneNode(true);
+    parentNode.removeChild(region);
+    var ele = document.createElement('slide-over');
+    ele.header = title;
+    ele.open = 'false';
+    ele.width = width;
+    ele.direction = direction;
+    ele.appendChild(regionClone);
+    parentNode.appendChild(ele);
+  } catch (e) {
+    console.error("Cannot setup Slideover Plug-In\n".concat(e));
+  }
 
+  apex.region.create(regionId, {
+    type: 'Slideover',
+    open: function open() {
+      // set property "open" of web component
+      document.querySelector("#".concat(regionId)).closest('slide-over').open = 'true';
+    },
+    close: function close() {
+      document.querySelector("#".concat(regionId)).closest('slide-over').open = 'false';
+    },
+    // needed for check if region can be opened / closed
+    widgetFullName: 'Slideover-Widget'
+  });
+};
 
-
-
-
-
-
-
-//# sourceMappingURL=decorators.js.map
-
-/***/ }),
-
-/***/ "./node_modules/lit-element/development/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/lit-element/development/index.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CSSResult": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.CSSResult),
-/* harmony export */   "ReactiveElement": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.ReactiveElement),
-/* harmony export */   "adoptStyles": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.adoptStyles),
-/* harmony export */   "css": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.css),
-/* harmony export */   "defaultConverter": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.defaultConverter),
-/* harmony export */   "getCompatibleStyle": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.getCompatibleStyle),
-/* harmony export */   "notEqual": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.notEqual),
-/* harmony export */   "supportsAdoptingStyleSheets": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.supportsAdoptingStyleSheets),
-/* harmony export */   "unsafeCSS": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.unsafeCSS),
-/* harmony export */   "_Σ": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__["_Σ"]),
-/* harmony export */   "html": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__.html),
-/* harmony export */   "noChange": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__.noChange),
-/* harmony export */   "nothing": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__.nothing),
-/* harmony export */   "render": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__.render),
-/* harmony export */   "svg": () => (/* reexport safe */ lit_html__WEBPACK_IMPORTED_MODULE_1__.svg),
-/* harmony export */   "LitElement": () => (/* reexport safe */ _lit_element_js__WEBPACK_IMPORTED_MODULE_2__.LitElement),
-/* harmony export */   "UpdatingElement": () => (/* reexport safe */ _lit_element_js__WEBPACK_IMPORTED_MODULE_2__.UpdatingElement),
-/* harmony export */   "_Φ": () => (/* reexport safe */ _lit_element_js__WEBPACK_IMPORTED_MODULE_2__["_Φ"]),
-/* harmony export */   "customElement": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.customElement),
-/* harmony export */   "decorateProperty": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.decorateProperty),
-/* harmony export */   "eventOptions": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.eventOptions),
-/* harmony export */   "legacyPrototypeMethod": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.legacyPrototypeMethod),
-/* harmony export */   "property": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.property),
-/* harmony export */   "query": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.query),
-/* harmony export */   "queryAll": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.queryAll),
-/* harmony export */   "queryAssignedNodes": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.queryAssignedNodes),
-/* harmony export */   "queryAsync": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.queryAsync),
-/* harmony export */   "standardPrototypeMethod": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.standardPrototypeMethod),
-/* harmony export */   "state": () => (/* reexport safe */ _decorators_js__WEBPACK_IMPORTED_MODULE_3__.state)
-/* harmony export */ });
-/* harmony import */ var _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lit/reactive-element */ "./node_modules/@lit/reactive-element/development/reactive-element.js");
-/* harmony import */ var lit_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit-html */ "./node_modules/lit-html/development/lit-html.js");
-/* harmony import */ var _lit_element_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lit-element.js */ "./node_modules/lit-element/development/lit-element.js");
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./decorators.js */ "./node_modules/lit-element/development/decorators.js");
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
-
-
-
-// TODO: link to docs on the new site
-console.warn("The main 'lit-element' module entrypoint is deprecated. Please update " +
-    "your imports to use the 'lit' package: 'lit' and 'lit/decorators.ts' " +
-    "or import from 'lit-element/lit-element.ts'.");
-//# sourceMappingURL=index.js.map
+if (!window.hartenfeller_dev) window.hartenfeller_dev = {};
+if (!window.hartenfeller_dev.slideover_plugin) window.hartenfeller_dev.slideover_plugin = {};
+window.hartenfeller_dev.slideover_plugin.initAPEXRegion = initAPEXRegion;
 
 /***/ }),
 
@@ -1757,6 +1712,7 @@ console.warn("The main 'lit-element' module entrypoint is deprecated. Please upd
   \*************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CSSResult": () => (/* reexport safe */ _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.CSSResult),
@@ -2000,6 +1956,7 @@ const _Φ = {
   \*******************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "html": () => (/* binding */ html),
@@ -3102,6 +3059,75 @@ const _Σ = {
 ((_e = (_f = globalThis)['litHtmlVersions']) !== null && _e !== void 0 ? _e : (_f['litHtmlVersions'] = [])).push('2.0.0-rc.2');
 //# sourceMappingURL=lit-html.js.map
 
+/***/ }),
+
+/***/ "./node_modules/lit/decorators.js":
+/*!****************************************!*\
+  !*** ./node_modules/lit/decorators.js ***!
+  \****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "customElement": () => (/* reexport safe */ _lit_reactive_element_decorators_custom_element_js__WEBPACK_IMPORTED_MODULE_0__.customElement),
+/* harmony export */   "property": () => (/* reexport safe */ _lit_reactive_element_decorators_property_js__WEBPACK_IMPORTED_MODULE_1__.property),
+/* harmony export */   "state": () => (/* reexport safe */ _lit_reactive_element_decorators_state_js__WEBPACK_IMPORTED_MODULE_2__.state),
+/* harmony export */   "eventOptions": () => (/* reexport safe */ _lit_reactive_element_decorators_event_options_js__WEBPACK_IMPORTED_MODULE_3__.eventOptions),
+/* harmony export */   "query": () => (/* reexport safe */ _lit_reactive_element_decorators_query_js__WEBPACK_IMPORTED_MODULE_4__.query),
+/* harmony export */   "queryAll": () => (/* reexport safe */ _lit_reactive_element_decorators_query_all_js__WEBPACK_IMPORTED_MODULE_5__.queryAll),
+/* harmony export */   "queryAsync": () => (/* reexport safe */ _lit_reactive_element_decorators_query_async_js__WEBPACK_IMPORTED_MODULE_6__.queryAsync),
+/* harmony export */   "queryAssignedNodes": () => (/* reexport safe */ _lit_reactive_element_decorators_query_assigned_nodes_js__WEBPACK_IMPORTED_MODULE_7__.queryAssignedNodes)
+/* harmony export */ });
+/* harmony import */ var _lit_reactive_element_decorators_custom_element_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lit/reactive-element/decorators/custom-element.js */ "./node_modules/@lit/reactive-element/development/decorators/custom-element.js");
+/* harmony import */ var _lit_reactive_element_decorators_property_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lit/reactive-element/decorators/property.js */ "./node_modules/@lit/reactive-element/development/decorators/property.js");
+/* harmony import */ var _lit_reactive_element_decorators_state_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @lit/reactive-element/decorators/state.js */ "./node_modules/@lit/reactive-element/development/decorators/state.js");
+/* harmony import */ var _lit_reactive_element_decorators_event_options_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @lit/reactive-element/decorators/event-options.js */ "./node_modules/@lit/reactive-element/development/decorators/event-options.js");
+/* harmony import */ var _lit_reactive_element_decorators_query_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @lit/reactive-element/decorators/query.js */ "./node_modules/@lit/reactive-element/development/decorators/query.js");
+/* harmony import */ var _lit_reactive_element_decorators_query_all_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-all.js */ "./node_modules/@lit/reactive-element/development/decorators/query-all.js");
+/* harmony import */ var _lit_reactive_element_decorators_query_async_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-async.js */ "./node_modules/@lit/reactive-element/development/decorators/query-async.js");
+/* harmony import */ var _lit_reactive_element_decorators_query_assigned_nodes_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @lit/reactive-element/decorators/query-assigned-nodes.js */ "./node_modules/@lit/reactive-element/development/decorators/query-assigned-nodes.js");
+
+//# sourceMappingURL=decorators.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/lit/index.js":
+/*!***********************************!*\
+  !*** ./node_modules/lit/index.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CSSResult": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.CSSResult),
+/* harmony export */   "LitElement": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.LitElement),
+/* harmony export */   "ReactiveElement": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.ReactiveElement),
+/* harmony export */   "UpdatingElement": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.UpdatingElement),
+/* harmony export */   "_Σ": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__["_Σ"]),
+/* harmony export */   "_Φ": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__["_Φ"]),
+/* harmony export */   "adoptStyles": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.adoptStyles),
+/* harmony export */   "css": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.css),
+/* harmony export */   "defaultConverter": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.defaultConverter),
+/* harmony export */   "getCompatibleStyle": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.getCompatibleStyle),
+/* harmony export */   "html": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.html),
+/* harmony export */   "noChange": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.noChange),
+/* harmony export */   "notEqual": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.notEqual),
+/* harmony export */   "nothing": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.nothing),
+/* harmony export */   "render": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.render),
+/* harmony export */   "supportsAdoptingStyleSheets": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.supportsAdoptingStyleSheets),
+/* harmony export */   "svg": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.svg),
+/* harmony export */   "unsafeCSS": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.unsafeCSS)
+/* harmony export */ });
+/* harmony import */ var lit_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit-html */ "./node_modules/lit-html/development/lit-html.js");
+/* harmony import */ var _lit_reactive_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lit/reactive-element */ "./node_modules/@lit/reactive-element/development/reactive-element.js");
+/* harmony import */ var lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lit-element/lit-element.js */ "./node_modules/lit-element/development/lit-element.js");
+
+//# sourceMappingURL=index.js.map
+
+
 /***/ })
 
 /******/ 	});
@@ -3131,6 +3157,18 @@ const _Σ = {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -3161,8 +3199,9 @@ const _Σ = {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
@@ -3170,6 +3209,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
+/* harmony import */ var lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/decorators.js */ "./node_modules/lit/decorators.js");
+/* harmony import */ var _apex_initRegion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./apex/initRegion */ "./src/apex/initRegion.js");
+/* harmony import */ var _apex_initRegion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apex_initRegion__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 var _templateObject, _templateObject2;
@@ -3189,8 +3232,6 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _decorate(decorators, factory, superClass, mixins) { var api = _getDecoratorsApi(); if (mixins) { for (var i = 0; i < mixins.length; i++) { api = mixins[i](api); } } var r = factory(function initialize(O) { api.initializeInstanceElements(O, decorated.elements); }, superClass); var decorated = api.decorateClass(_coalesceClassElements(r.d.map(_createElementDescriptor)), decorators); api.initializeClassElements(r.F, decorated.elements); return api.runClassFinishers(r.F, decorated.finishers); }
 
@@ -3224,23 +3265,26 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var _require = __webpack_require__(/*! lit-element */ "./node_modules/lit-element/development/index.js"),
-    LitElement = _require.LitElement,
-    html = _require.html,
-    customElement = _require.customElement,
-    property = _require.property,
-    css = _require.css;
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
-var MyComponent = _decorate([customElement('my-component')], function (_initialize, _LitElement) {
-  var MyComponent = /*#__PURE__*/function (_LitElement2) {
-    _inherits(MyComponent, _LitElement2);
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
-    var _super = _createSuper(MyComponent);
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-    function MyComponent() {
+
+
+
+
+var SlideOver = _decorate([(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.customElement)('slide-over')], function (_initialize, _LitElement) {
+  var SlideOver = /*#__PURE__*/function (_LitElement2) {
+    _inherits(SlideOver, _LitElement2);
+
+    var _super = _createSuper(SlideOver);
+
+    function SlideOver() {
       var _this;
 
-      _classCallCheck(this, MyComponent);
+      _classCallCheck(this, SlideOver);
 
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
@@ -3253,36 +3297,153 @@ var MyComponent = _decorate([customElement('my-component')], function (_initiali
       return _this;
     }
 
-    return MyComponent;
+    return SlideOver;
   }(_LitElement);
 
   return {
-    F: MyComponent,
+    F: SlideOver,
     d: [{
       kind: "field",
-      decorators: [property()],
-      key: "text",
+      decorators: [(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.property)({
+        type: String,
+        reflect: true
+      })],
+      key: "open",
       value: function value() {
-        return 'Change Me';
+        return 'false';
+      }
+    }, {
+      kind: "field",
+      decorators: [(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.property)({
+        type: String
+      })],
+      key: "header",
+      value: function value() {
+        return '';
+      }
+    }, {
+      kind: "field",
+      decorators: [(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.property)({
+        type: String
+      })],
+      key: "width",
+      value: function value() {
+        return '500px';
+      }
+    }, {
+      kind: "field",
+      decorators: [(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.property)({
+        type: String
+      })],
+      key: "direction",
+      value: function value() {
+        return 'right';
+      }
+    }, {
+      kind: "field",
+      key: "initialized",
+      value: function value() {
+        return false;
+      }
+    }, {
+      kind: "field",
+      key: "that",
+      value: function value() {
+        return this;
       }
     }, {
       kind: "get",
       "static": true,
       key: "styles",
       value: function styles() {
-        return css(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      .my-class {\n        color: red;\n      }\n    "])));
+        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      @media (prefers-reduced-motion: reduce) {\n        * {\n          transition: none !important;\n        }\n      }\n\n      @media screen and (min-width: 1px) and (max-width: 480px) {\n        .slide-over {\n          width: 100% !important;\n          background-color: red;\n        }\n      }\n\n      .slide-open {\n        --layover-opacity: 0.75;\n        --translate: 0;\n      }\n\n      .slide-closed {\n        --layover-opacity: 0;\n      }\n\n      .slide-closed .slide-over-r {\n        --translate: 100%;\n      }\n\n      .slide-closed .slide-over-l {\n        --translate: -100%;\n      }\n\n      .slide-closed .layover {\n        opacity: 0;\n      }\n\n      .slide-open .layover {\n        pointer-events: auto;\n      }\n\n      .layover {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: rgba(41, 41, 41, 0.6);\n        z-index: 99998;\n        opacity: 1;\n        pointer-events: none;\n\n        transition: opacity 150ms ease-in-out;\n      }\n\n      .slide-over {\n        pointer-events: auto;\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        background: #fff;\n        z-index: 99999;\n        height: 100%;\n        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),\n          0 10px 10px -5px rgba(0, 0, 0, 0.04);\n        transform: translateX(var(--translate));\n        transition: transform 0.35s ease-in-out;\n      }\n\n      .slide-over-r {\n        right: 0;\n      }\n\n      .slide-over-l {\n        left: 0;\n      }\n\n      .slide-header {\n        padding: 16px;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n      }\n\n      .slide-header-text {\n        margin: 0;\n        color: #262626;\n        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,\n          'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,\n          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',\n          'Noto Color Emoji';\n        font-size: 1.5rem;\n        font-weight: 600;\n        letter-spacing: 0.0125em;\n      }\n\n      .close-button {\n        display: flex;\n        padding: 4px;\n        border: none;\n        background-color: transparent;\n        color: #9ca3af;\n        border: 2px solid transparent;\n        cursor: pointer;\n        line-height: inherit;\n        border-radius: 8px;\n      }\n\n      .close-button:hover {\n        color: #4b5563;\n      }\n\n      .close-button:focus {\n        border-color: #9ca3af;\n      }\n\n      .slide-content {\n        padding: 16px;\n      }\n    "])));
       }
     }, {
       kind: "method",
       key: "render",
       value: function render() {
-        return html(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<span class=\"my-class\">", "</span>"])), this.text);
+        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<div id=\"slide-wrapper\" class=\"slide-closed\">\n      <div id=\"layover\" class=\"layover\" @click=\"", "\"></div>\n      <div\n        id=\"slide-over\"\n        class=\"slide-over ", "\"\n      >\n        <header class=\"slide-header\">\n          <h2 class=\"slide-header-text\">", "</h2>\n          <button\n            type=\"button\"\n            id=\"test-close\"\n            class=\"close-button\"\n            @click=\"", "\"\n          >\n            <svg\n              style=\"width: 1.5rem; height: 1.5rem;\"\n              x-description=\"Heroicon name: outline/x\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n              fill=\"none\"\n              viewBox=\"0 0 24 24\"\n              stroke=\"currentColor\"\n              aria-hidden=\"true\"\n            >\n              <path\n                stroke-linecap=\"round\"\n                stroke-linejoin=\"round\"\n                stroke-width=\"2\"\n                d=\"M6 18L18 6M6 6l12 12\"\n              ></path>\n            </svg>\n          </button>\n        </header>\n        <main class=\"slide-content\">\n          <slot name=\"content\">Content Here</slot>\n        </main>\n      </div>\n    </div>"])), this.close, this.direction === 'right' ? 'slide-over-r' : 'slide-over-l', this.header, this.close);
+      }
+    }, {
+      kind: "method",
+      key: "firstUpdated",
+      value: function firstUpdated() {
+        this.wrapper = this.shadowRoot.querySelector('#slide-wrapper');
+        this.slideOver = this.shadowRoot.querySelector('#slide-over');
+        this.slideOver.style.width = this.width;
+        this.initialized = true;
+      }
+    }, {
+      kind: "method",
+      key: "close",
+      value: function close() {
+        this.open = 'false';
+      }
+    }, {
+      kind: "method",
+      key: "toggleState",
+      value: function toggleState() {
+        if (!this.initialized) return;
+
+        if (this.open === 'true') {
+          this.wrapper.classList.remove('slide-closed');
+          this.wrapper.classList.add('slide-open');
+          this.initClickListeners();
+        } else {
+          this.wrapper.classList.remove('slide-open');
+          this.wrapper.classList.add('slide-closed');
+          this.removeEventListeners();
+        }
+      } // arrow function so that `this` will work when called
+      // from document event listener
+
+    }, {
+      kind: "field",
+      key: "handleKeyClick",
+      value: function value() {
+        var _this2 = this;
+
+        return function (e) {
+          if (e.key === 'Escape') {
+            _this2.close();
+          }
+        };
+      }
+    }, {
+      kind: "method",
+      key: "initClickListeners",
+      value: function initClickListeners() {
+        document.addEventListener('keyup', this.handleKeyClick);
+      }
+    }, {
+      kind: "method",
+      key: "removeEventListeners",
+      value: function removeEventListeners() {
+        document.removeEventListener('keyup', this.handleKeyClick);
+      }
+    }, {
+      kind: "method",
+      key: "attributeChangedCallback",
+      value: function attributeChangedCallback(name, oldValue, newValue) {
+        _get(_getPrototypeOf(SlideOver.prototype), "attributeChangedCallback", this).call(this, name, oldValue, newValue);
+
+        if (name === 'open') {
+          this.toggleState();
+        }
+      }
+    }, {
+      kind: "method",
+      key: "disconnectedCallback",
+      value: function disconnectedCallback() {
+        this.removeEventListeners();
+
+        _get(_getPrototypeOf(SlideOver.prototype), "disconnectedCallback", this).call(this);
       }
     }]
   };
-}, LitElement);
+}, lit__WEBPACK_IMPORTED_MODULE_0__.LitElement);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyComponent);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SlideOver);
 })();
 
 /******/ })()

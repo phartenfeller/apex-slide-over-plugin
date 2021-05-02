@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Web Component Template</title>
+  <title>Slideover Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <script defer src="index.js"></script></head>
 
 <style>
-  currency-converter {
-    margin: 8px;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    row-gap: 1rem;
   }
 </style>
 
+<script type="text/javascript">
+  function openModal(dir) {
+    console.log('Open modal...')
+    document.querySelector(`slide-over#${dir}`).setAttribute('open', 'true');
+  }
+</script>
+
 <body>
-  <h1>Web Component Template</h1>
-  <div style="display: grid; grid-template-columns: repeat(2,minmax(0,1fr));">
-    <my-component text="Hello World"></my-component>
+  <h1>Slideover Demo</h1>
+  <div class="grid">
+    <div>
+      <button type="button" onClick="openModal('right')">Open Right</button>
+      <slide-over id="right" header="Header here" width="50%">
+        <div slot="content">
+          <h2>This is the body</h2>
+          <input type="number">
+          <button type="button" onClick="openModal('left')">Open Left</button>
+        </div>
+      </slide-over>
+    </div>
+
+    <div>
+      <button type="button" onClick="openModal('left')">Open Left</button>
+      <slide-over id="left" header="Header here" width="25%" direction="left">
+        <div slot="content">
+          <h2>This comes from the left</h2>
+          <input type="date">
+        </div>
+      </slide-over>
+    </div>
   </div>
 </body>

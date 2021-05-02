@@ -1,4 +1,6 @@
-import { css, customElement, html, LitElement, property } from 'lit-element';
+import { css, html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import './apex/initRegion';
 
 @customElement('slide-over')
 class SlideOver extends LitElement {
@@ -8,12 +10,31 @@ class SlideOver extends LitElement {
   @property({ type: String })
   header = '';
 
+  @property({ type: String })
+  width = '500px';
+
+  @property({ type: String })
+  direction = 'right';
+
   initialized = false;
 
   that = this;
 
   static get styles() {
     return css`
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+
+      @media screen and (min-width: 1px) and (max-width: 480px) {
+        .slide-over {
+          width: 100% !important;
+          background-color: red;
+        }
+      }
+
       .slide-open {
         --layover-opacity: 0.75;
         --translate: 0;
@@ -21,7 +42,14 @@ class SlideOver extends LitElement {
 
       .slide-closed {
         --layover-opacity: 0;
+      }
+
+      .slide-closed .slide-over-r {
         --translate: 100%;
+      }
+
+      .slide-closed .slide-over-l {
+        --translate: -100%;
       }
 
       .slide-closed .layover {
@@ -38,7 +66,7 @@ class SlideOver extends LitElement {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(107, 114, 128, 0.75);
+        background-color: rgba(41, 41, 41, 0.6);
         z-index: 99998;
         opacity: 1;
         pointer-events: none;
@@ -51,8 +79,6 @@ class SlideOver extends LitElement {
         position: fixed;
         top: 0;
         bottom: 0;
-        right: 0;
-        width: 500px;
         background: #fff;
         z-index: 99999;
         height: 100%;
@@ -60,6 +86,14 @@ class SlideOver extends LitElement {
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
         transform: translateX(var(--translate));
         transition: transform 0.35s ease-in-out;
+      }
+
+      .slide-over-r {
+        right: 0;
+      }
+
+      .slide-over-l {
+        left: 0;
       }
 
       .slide-header {
@@ -71,13 +105,14 @@ class SlideOver extends LitElement {
 
       .slide-header-text {
         margin: 0;
-        color: #1f2937;
+        color: #262626;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
           'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
           'Noto Color Emoji';
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 600;
+        letter-spacing: 0.0125em;
       }
 
       .close-button {
@@ -109,7 +144,12 @@ class SlideOver extends LitElement {
   render() {
     return html`<div id="slide-wrapper" class="slide-closed">
       <div id="layover" class="layover" @click="${this.close}"></div>
-      <div class="slide-over">
+      <div
+        id="slide-over"
+        class="slide-over ${this.direction === 'right'
+          ? 'slide-over-r'
+          : 'slide-over-l'}"
+      >
         <header class="slide-header">
           <h2 class="slide-header-text">${this.header}</h2>
           <button
@@ -145,6 +185,8 @@ class SlideOver extends LitElement {
 
   firstUpdated() {
     this.wrapper = this.shadowRoot.querySelector('#slide-wrapper');
+    this.slideOver = this.shadowRoot.querySelector('#slide-over');
+    this.slideOver.style.width = this.width;
     this.initialized = true;
   }
 
