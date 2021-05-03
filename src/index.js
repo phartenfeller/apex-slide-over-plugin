@@ -79,7 +79,7 @@ class SlideOver extends LitElement {
         position: fixed;
         top: 0;
         bottom: 0;
-        background: #fff;
+        background: var(--ut-body-background-color, #fff);
         z-index: 99999;
         height: 100%;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -105,14 +105,21 @@ class SlideOver extends LitElement {
 
       .slide-header-text {
         margin: 0;
-        color: #262626;
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-          'Noto Color Emoji';
+        color: var(--ut-body-title-text-color, #262626);
         font-size: 1.5rem;
-        font-weight: 600;
-        letter-spacing: 0.0125em;
+        font-family: var(
+          --ut-hero-region-title-font-family,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          sans-serif;
+        );
+        font-weight: var(600);
       }
 
       .close-button {
@@ -120,7 +127,8 @@ class SlideOver extends LitElement {
         padding: 4px;
         border: none;
         background-color: transparent;
-        color: #9ca3af;
+        color: var(--ut-body-text-color, #9ca3af);
+        opacity: 0.5;
         border: 2px solid transparent;
         cursor: pointer;
         line-height: inherit;
@@ -128,11 +136,11 @@ class SlideOver extends LitElement {
       }
 
       .close-button:hover {
-        color: #4b5563;
+        opacity: 1;
       }
 
       .close-button:focus {
-        border-color: #9ca3af;
+        border-color: var(--ut-palette-primary, #9ca3af);
       }
 
       .slide-content {
