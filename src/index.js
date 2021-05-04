@@ -36,12 +36,12 @@ class SlideOver extends LitElement {
       }
 
       .slide-open {
-        --layover-opacity: 0.75;
+        --lay-over-opacity: 0.75;
         --translate: 0;
       }
 
       .slide-closed {
-        --layover-opacity: 0;
+        --lay-over-opacity: 0;
       }
 
       .slide-closed .slide-over-r {
@@ -52,15 +52,15 @@ class SlideOver extends LitElement {
         --translate: -100%;
       }
 
-      .slide-closed .layover {
+      .slide-closed .lay-over {
         opacity: 0;
       }
 
-      .slide-open .layover {
+      .slide-open .lay-over {
         pointer-events: auto;
       }
 
-      .layover {
+      .lay-over {
         position: fixed;
         top: 0;
         right: 0;
@@ -151,19 +151,28 @@ class SlideOver extends LitElement {
 
   render() {
     return html`<div id="slide-wrapper" class="slide-closed">
-      <div id="layover" class="layover" @click="${this.close}"></div>
+      <div
+        id="lay-over"
+        class="lay-over"
+        part="lay-over"
+        @click="${this.close}"
+      ></div>
       <div
         id="slide-over"
+        part="slide-over"
         class="slide-over ${this.direction === 'right'
           ? 'slide-over-r'
           : 'slide-over-l'}"
       >
         <header class="slide-header">
-          <h2 class="slide-header-text">${this.header}</h2>
+          <h2 class="slide-header-text" part="slide-header-text">
+            ${this.header}
+          </h2>
           <button
             type="button"
             id="test-close"
             class="close-button"
+            part="close-button"
             @click="${this.close}"
           >
             <svg

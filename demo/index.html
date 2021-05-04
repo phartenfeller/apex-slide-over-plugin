@@ -16,6 +16,27 @@
     --ut-body-background-color: white;
     --ut-focus-outline-color: blue;
   }
+
+  slide-over#customized::part(lay-over) {
+    background-color: rgba(90, 41, 41, 0.6);
+  }
+
+  slide-over#customized::part(slide-over) {
+    background-color: #ffffd2;
+  }
+
+  slide-over#customized::part(slide-header-text) {
+    font-weight: 300;
+    color: purple;
+  }
+
+  slide-over#customized::part(close-button) {
+    color: purple;
+  }
+
+  slide-over#customized::part(close-button):focus {
+    border-color: pink;
+  }
 </style>
 
 <script type="text/javascript">
@@ -45,6 +66,16 @@
         <div slot="content">
           <h2>This comes from the left</h2>
           <input type="date">
+        </div>
+      </slide-over>
+    </div>
+
+    <div>
+      <button type="button" onClick="openModal('customized')">Open CSS Customized</button>
+      <slide-over id="customized" header="Header here" width="33%" direction="right">
+        <div slot="content">
+          <h2>This uses custom CSS</h2>
+          <input type="textarea">
         </div>
       </slide-over>
     </div>
