@@ -86,6 +86,8 @@ class SlideOver extends LitElement {
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
         transform: translateX(var(--translate));
         transition: transform 0.35s ease-in-out;
+        max-height: 100vh;
+        overflow-y: auto;
       }
 
       .slide-over-r {
