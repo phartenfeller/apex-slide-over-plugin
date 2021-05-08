@@ -67,7 +67,7 @@ class SlideOver extends LitElement {
         bottom: 0;
         left: 0;
         background-color: rgba(41, 41, 41, 0.6);
-        z-index: 99998;
+        z-index: 900;
         opacity: 1;
         pointer-events: none;
 
@@ -80,7 +80,7 @@ class SlideOver extends LitElement {
         top: 0;
         bottom: 0;
         background: var(--ut-body-background-color, #fff);
-        z-index: 99999;
+        z-index: 901;
         height: 100%;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -144,6 +144,7 @@ class SlideOver extends LitElement {
       }
 
       .slide-content {
+        position: static;
         padding: 16px;
       }
     `;

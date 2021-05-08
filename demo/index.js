@@ -1663,6 +1663,7 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
       title = _ref.title,
       width = _ref.width,
       direction = _ref.direction;
+  var mustResize = true;
   console.log({
     regionId: regionId,
     title: title,
@@ -1671,25 +1672,51 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
 
   try {
     var region = document.querySelector("#".concat(regionId));
-    var parentNode = region.parentNode;
-    region.slot = 'content';
-    var regionClone = region.cloneNode(true);
-    parentNode.removeChild(region);
+    var parentNode = region.parentNode; // add slot attribute to use inside slideover web component
+
+    region.slot = 'content'; // create web component instance
+
     var ele = document.createElement('slide-over');
     ele.header = title;
     ele.open = 'false';
     ele.width = width;
     ele.direction = direction;
-    ele.appendChild(regionClone);
+    ele.appendChild(region); // move slotted apex plug-in region inside the web component
+
     parentNode.appendChild(ele);
   } catch (e) {
     console.error("Cannot setup Slideover Plug-In\n".concat(e));
-  }
+  } // resize interactive grids that otherwise look out of place
 
+
+  var resize = function resize() {
+    document // find all subregions of the slideover
+    .querySelectorAll("#".concat(regionId, " div[role=\"region\"]")).forEach(function (e) {
+      var id = e.id;
+
+      try {
+        var subregion = apex.region(id);
+
+        if (typeof subregion.call !== 'undefined') {
+          subregion.call('resize');
+        }
+      } catch (_) {// do nothing when region does not support resize
+      }
+    });
+  };
+
+  apex.jQuery(window).on('apexwindowresized', function () {
+    mustResize = true;
+  });
   apex.region.create(regionId, {
     type: 'Slideover',
     open: function open() {
-      // set property "open" of web component
+      if (mustResize) {
+        resize();
+        mustResize = false;
+      } // set property "open" of web component
+
+
       document.querySelector("#".concat(regionId)).closest('slide-over').open = 'true';
     },
     close: function close() {
@@ -3356,7 +3383,7 @@ var SlideOver = _decorate([(0,lit_decorators_js__WEBPACK_IMPORTED_MODULE_1__.cus
       "static": true,
       key: "styles",
       value: function styles() {
-        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      @media (prefers-reduced-motion: reduce) {\n        * {\n          transition: none !important;\n        }\n      }\n\n      @media screen and (min-width: 1px) and (max-width: 480px) {\n        .slide-over {\n          width: 100% !important;\n          background-color: red;\n        }\n      }\n\n      .slide-open {\n        --lay-over-opacity: 0.75;\n        --translate: 0;\n      }\n\n      .slide-closed {\n        --lay-over-opacity: 0;\n      }\n\n      .slide-closed .slide-over-r {\n        --translate: 100%;\n      }\n\n      .slide-closed .slide-over-l {\n        --translate: -100%;\n      }\n\n      .slide-closed .lay-over {\n        opacity: 0;\n      }\n\n      .slide-open .lay-over {\n        pointer-events: auto;\n      }\n\n      .lay-over {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: rgba(41, 41, 41, 0.6);\n        z-index: 99998;\n        opacity: 1;\n        pointer-events: none;\n\n        transition: opacity 150ms ease-in-out;\n      }\n\n      .slide-over {\n        pointer-events: auto;\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        background: var(--ut-body-background-color, #fff);\n        z-index: 99999;\n        height: 100%;\n        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),\n          0 10px 10px -5px rgba(0, 0, 0, 0.04);\n        transform: translateX(var(--translate));\n        transition: transform 0.35s ease-in-out;\n      }\n\n      .slide-over-r {\n        right: 0;\n      }\n\n      .slide-over-l {\n        left: 0;\n      }\n\n      .slide-header {\n        padding: 16px;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n      }\n\n      .slide-header-text {\n        margin: 0;\n        color: var(--ut-body-title-text-color, #262626);\n        font-size: 1.5rem;\n        font-family: var(\n          --ut-hero-region-title-font-family,\n          ui-sans-serif,\n          system-ui,\n          -apple-system,\n          BlinkMacSystemFont,\n          'Segoe UI',\n          Roboto,\n          'Helvetica Neue',\n          Arial,\n          sans-serif;\n        );\n        font-weight: var(600);\n      }\n\n      .close-button {\n        display: flex;\n        padding: 4px;\n        border: none;\n        background-color: transparent;\n        color: var(--ut-body-text-color, #9ca3af);\n        opacity: 0.5;\n        border: 2px solid transparent;\n        cursor: pointer;\n        line-height: inherit;\n        border-radius: 8px;\n      }\n\n      .close-button:hover {\n        opacity: 1;\n      }\n\n      .close-button:focus {\n        border-color: var(--ut-palette-primary, #9ca3af);\n      }\n\n      .slide-content {\n        padding: 16px;\n      }\n    "])));
+        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n      @media (prefers-reduced-motion: reduce) {\n        * {\n          transition: none !important;\n        }\n      }\n\n      @media screen and (min-width: 1px) and (max-width: 480px) {\n        .slide-over {\n          width: 100% !important;\n          background-color: red;\n        }\n      }\n\n      .slide-open {\n        --lay-over-opacity: 0.75;\n        --translate: 0;\n      }\n\n      .slide-closed {\n        --lay-over-opacity: 0;\n      }\n\n      .slide-closed .slide-over-r {\n        --translate: 100%;\n      }\n\n      .slide-closed .slide-over-l {\n        --translate: -100%;\n      }\n\n      .slide-closed .lay-over {\n        opacity: 0;\n      }\n\n      .slide-open .lay-over {\n        pointer-events: auto;\n      }\n\n      .lay-over {\n        position: fixed;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        background-color: rgba(41, 41, 41, 0.6);\n        z-index: 900;\n        opacity: 1;\n        pointer-events: none;\n\n        transition: opacity 150ms ease-in-out;\n      }\n\n      .slide-over {\n        pointer-events: auto;\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        background: var(--ut-body-background-color, #fff);\n        z-index: 901;\n        height: 100%;\n        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),\n          0 10px 10px -5px rgba(0, 0, 0, 0.04);\n        transform: translateX(var(--translate));\n        transition: transform 0.35s ease-in-out;\n      }\n\n      .slide-over-r {\n        right: 0;\n      }\n\n      .slide-over-l {\n        left: 0;\n      }\n\n      .slide-header {\n        padding: 16px;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n      }\n\n      .slide-header-text {\n        margin: 0;\n        color: var(--ut-body-title-text-color, #262626);\n        font-size: 1.5rem;\n        font-family: var(\n          --ut-hero-region-title-font-family,\n          ui-sans-serif,\n          system-ui,\n          -apple-system,\n          BlinkMacSystemFont,\n          'Segoe UI',\n          Roboto,\n          'Helvetica Neue',\n          Arial,\n          sans-serif;\n        );\n        font-weight: var(600);\n      }\n\n      .close-button {\n        display: flex;\n        padding: 4px;\n        border: none;\n        background-color: transparent;\n        color: var(--ut-body-text-color, #9ca3af);\n        opacity: 0.5;\n        border: 2px solid transparent;\n        cursor: pointer;\n        line-height: inherit;\n        border-radius: 8px;\n      }\n\n      .close-button:hover {\n        opacity: 1;\n      }\n\n      .close-button:focus {\n        border-color: var(--ut-palette-primary, #9ca3af);\n      }\n\n      .slide-content {\n        position: static;\n        padding: 16px;\n      }\n    "])));
       }
     }, {
       kind: "method",
