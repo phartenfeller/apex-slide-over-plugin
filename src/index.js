@@ -103,6 +103,10 @@ class SlideOver extends LitElement {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        border-bottom-width: var(--jui-dialog-titlebar-border-width, 1px);
+        border-bottom-style: solid;
+        border-bottom-color: var(--jui-dialog-titlebar-border-color, #d4d4d4);
       }
 
       .slide-header-text {
