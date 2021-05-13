@@ -2,6 +2,8 @@
 
 Region Plug-In for a slideover which can be opened and slides on left or right.
 
+![demo video](./assets/demo.gif)
+
 Features:
 
 - Directions right and left
