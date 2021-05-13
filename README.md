@@ -1,8 +1,10 @@
 # Oracle APEX Slideover Plug-In
 
-Region Plug-In for a slideover which can be opened and slides on left or right.
+Region Plug-In for content that slides in from the side.
 
 ![demo video](./assets/demo.gif)
+
+Demo: https://apex.oracle.com/pls/apex/hartenfeller_dev/r/slide-over-plugin-demo/slideover-demo
 
 Features:
 
@@ -12,7 +14,22 @@ Features:
 - Stylable
 
 Internet Explorer is not supported!
-## How to open a slideover
+
+## Usage
+
+### Import Plug-In
+
+- Download Plug-In by goint to the latest release on GitHub and download the asset
+- Import the downloaded SQL file in your APEX App in the shared components -> Plug-ins -> import
+
+### Region
+
+- Create a region of the type "Slideover [Plug-In]"
+- Change Layout -> Position to "Body1"
+- Put your desired child regions into the created plug-in region
+- Change settings under the region attributes (optional)
+
+### Open a slideover
 
 Dynamic Action -> Open Region -> Select your region
 
