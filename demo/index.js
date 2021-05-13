@@ -52,15 +52,13 @@ class CSSResult {
         return this.cssText;
     }
 }
-/**
- * Wrap a value for interpolation in a [[`css`]] tagged template literal.
- *
- * This is unsafe because untrusted CSS text can be used to phone home
- * or exfiltrate data to an attacker controlled site. Take care to only use
- * this with trusted input.
- */
-const unsafeCSS = (value) => {
-    return new CSSResult(String(value), constructionToken);
+const cssResultCache = new Map();
+const getCSSResult = (cssText) => {
+    let result = cssResultCache.get(cssText);
+    if (result === undefined) {
+        cssResultCache.set(cssText, (result = new CSSResult(cssText, constructionToken)));
+    }
+    return result;
 };
 const textFromCSSResult = (value) => {
     if (value instanceof CSSResult) {
@@ -70,11 +68,21 @@ const textFromCSSResult = (value) => {
         return value;
     }
     else {
-        throw new Error(`Value passed to 'css' function must be a 'css' function result: ${value}. Use 'unsafeCSS' to pass non-literal values, but
-            take care to ensure page security.`);
+        throw new Error(`Value passed to 'css' function must be a 'css' function result: ` +
+            `${value}. Use 'unsafeCSS' to pass non-literal values, but take care ` +
+            `to ensure page security.`);
     }
 };
-const cssResultCache = new Map();
+/**
+ * Wrap a value for interpolation in a [[`css`]] tagged template literal.
+ *
+ * This is unsafe because untrusted CSS text can be used to phone home
+ * or exfiltrate data to an attacker controlled site. Take care to only use
+ * this with trusted input.
+ */
+const unsafeCSS = (value) => {
+    return getCSSResult(typeof value === 'string' ? value : String(value));
+};
 /**
  * Template tag which which can be used with LitElement's [[LitElement.styles |
  * `styles`]] property to set element styles. For security reasons, only literal
@@ -82,12 +90,10 @@ const cssResultCache = new Map();
  * may be used inside a template string part.
  */
 const css = (strings, ...values) => {
-    const cssText = values.reduce((acc, v, idx) => acc + textFromCSSResult(v) + strings[idx + 1], strings[0]);
-    let result = cssResultCache.get(cssText);
-    if (result === undefined) {
-        cssResultCache.set(cssText, (result = new CSSResult(cssText, constructionToken)));
-    }
-    return result;
+    const cssText = strings.length === 1
+        ? strings[0]
+        : values.reduce((acc, v, idx) => acc + textFromCSSResult(v) + strings[idx + 1], strings[0]);
+    return getCSSResult(cssText);
 };
 /**
  * Applies the given styles to a `shadowRoot`. When Shadow DOM is
@@ -1086,7 +1092,7 @@ class ReactiveElement extends HTMLElement {
                 if (obj[name] !== undefined) {
                     console.warn(`\`${name}\` is implemented. It ` +
                         `has been removed from this version of ReactiveElement.` +
-                        ` See the changelog at https://github.com/Polymer/lit-html/blob/main/packages/reactive-element/CHANGELOG.md`);
+                        ` See the changelog at https://github.com/lit/lit/blob/main/packages/reactive-element/CHANGELOG.md`);
                 }
             };
             [`initialize`, `requestUpdateInternal`, `_getUpdateComplete`].forEach((name) => 
@@ -1604,6 +1610,20 @@ _f = finalized;
  */
 ReactiveElement[_f] = true;
 /**
+ * Memoized list of all element properties, including any superclass properties.
+ * Created lazily on user subclasses when finalizing the class.
+ * @nocollapse
+ * @category properties
+ */
+ReactiveElement.elementProperties = new Map();
+/**
+ * Memoized list of all element styles.
+ * Created lazily on user subclasses when finalizing the class.
+ * @nocollapse
+ * @category styles
+ */
+ReactiveElement.elementStyles = [];
+/**
  * Options used when calling `attachShadow`. Set this property to customize
  * the options for the shadowRoot; for example, to create a closed
  * shadowRoot: `{mode: 'closed'}`.
@@ -1644,7 +1664,7 @@ if (DEV_MODE) {
 // This line will be used in regexes to search for ReactiveElement usage.
 // TODO(justinfagnani): inject version number at build time
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-((_d = (_e = globalThis)['reactiveElementVersions']) !== null && _d !== void 0 ? _d : (_e['reactiveElementVersions'] = [])).push('1.0.0-rc.1');
+((_d = (_e = globalThis)['reactiveElementVersions']) !== null && _d !== void 0 ? _d : (_e['reactiveElementVersions'] = [])).push('1.0.0-rc.2');
 //# sourceMappingURL=reactive-element.js.map
 
 /***/ }),
@@ -1824,7 +1844,7 @@ const DEV_MODE = true;
 // This line will be used in regexes to search for LitElement usage.
 // TODO(justinfagnani): inject version number at build time
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-((_a = (_f = globalThis)['litElementVersions']) !== null && _a !== void 0 ? _a : (_f['litElementVersions'] = [])).push('3.0.0-rc.1');
+((_a = (_f = globalThis)['litElementVersions']) !== null && _a !== void 0 ? _a : (_f['litElementVersions'] = [])).push('3.0.0-rc.2');
 /**
  * Base element class that manages element properties and attributes, and
  * renders a lit-html template.
@@ -1874,7 +1894,7 @@ class LitElement extends _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__.Reac
     }
     // TODO(kschaaf): Consider debouncing directive disconnection so element moves
     // do not thrash directive callbacks
-    // https://github.com/Polymer/lit-html/issues/1457
+    // https://github.com/lit/lit/issues/1457
     /**
      * @category lifecycle
      */
@@ -1934,7 +1954,7 @@ if (DEV_MODE) {
                 console.warn(`\`${name}\` is implemented. It ` +
                     `has been removed from this version of LitElement. `
                 // TODO(sorvell): add link to changelog when location has stabilized.
-                // + See the changelog at https://github.com/Polymer/lit-html/blob/main/packages/lit-element/CHANGELOG.md`
+                // + See the changelog at https://github.com/lit/lit/blob/main/packages/lit-element/CHANGELOG.md`
                 );
             }
         };
@@ -2538,7 +2558,7 @@ class TemplateInstance {
         /** @internal */
         this._parts = [];
         /** @internal */
-        this._$disconnetableChildren = undefined;
+        this._$disconnectableChildren = undefined;
         this._$template = template;
         this._$parent = parent;
     }
@@ -2600,7 +2620,7 @@ class ChildPart {
         // The following fields will be patched onto ChildParts when required by
         // AsyncDirective
         /** @internal */
-        this._$disconnetableChildren = undefined;
+        this._$disconnectableChildren = undefined;
         this._$startNode = startNode;
         this._$endNode = endNode;
         this._$parent = parent;
@@ -2797,7 +2817,7 @@ class ChildPart {
                 // If no existing part, create a new one
                 // TODO (justinfagnani): test perf impact of always creating two parts
                 // instead of sharing parts between nodes
-                // https://github.com/Polymer/lit-html/issues/1266
+                // https://github.com/lit/lit/issues/1266
                 itemParts.push((itemPart = new ChildPart(this._insert(createMarker()), this._insert(createMarker()), this, this.options)));
             }
             else {
@@ -2841,7 +2861,7 @@ class AttributePart {
         /** @internal */
         this._$committedValue = nothing;
         /** @internal */
-        this._$disconnetableChildren = undefined;
+        this._$disconnectableChildren = undefined;
         /** @internal */
         this._setDirectiveConnected = undefined;
         this.element = element;
@@ -3029,7 +3049,7 @@ class ElementPart {
         this.element = element;
         this.type = ELEMENT_PART;
         /** @internal */
-        this._$disconnetableChildren = undefined;
+        this._$disconnectableChildren = undefined;
         /** @internal */
         this._setDirectiveConnected = undefined;
         this._$parent = parent;
@@ -3083,7 +3103,7 @@ const _Σ = {
 // This line will be used in regexes to search for lit-html usage.
 // TODO(justinfagnani): inject version number at build time
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-((_e = (_f = globalThis)['litHtmlVersions']) !== null && _e !== void 0 ? _e : (_f['litHtmlVersions'] = [])).push('2.0.0-rc.2');
+((_e = (_f = globalThis)['litHtmlVersions']) !== null && _e !== void 0 ? _e : (_f['litHtmlVersions'] = [])).push('2.0.0-rc.3');
 //# sourceMappingURL=lit-html.js.map
 
 /***/ }),
@@ -3148,8 +3168,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "svg": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.svg),
 /* harmony export */   "unsafeCSS": () => (/* reexport safe */ lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__.unsafeCSS)
 /* harmony export */ });
-/* harmony import */ var lit_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit-html */ "./node_modules/lit-html/development/lit-html.js");
-/* harmony import */ var _lit_reactive_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lit/reactive-element */ "./node_modules/@lit/reactive-element/development/reactive-element.js");
+/* harmony import */ var _lit_reactive_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @lit/reactive-element */ "./node_modules/@lit/reactive-element/development/reactive-element.js");
+/* harmony import */ var lit_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit-html */ "./node_modules/lit-html/development/lit-html.js");
 /* harmony import */ var lit_element_lit_element_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lit-element/lit-element.js */ "./node_modules/lit-element/development/lit-element.js");
 
 //# sourceMappingURL=index.js.map
