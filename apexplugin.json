@@ -22,9 +22,9 @@
     "url" : "https://github.com/phartenfeller/apex-slide-over-plugin.git"
   },
   "oracle" : {
-    "versions" : ["11.2.0.1", "12.1.0.1", "18.0.0.0"],
+    "versions" : ["12.1.0.1","12.2.0.1","18.4.0.0","19.0.0.0"],
     "apex" : {
-      "versions" : ["18.2", "19.1", "19.2", "20.1", "20.2", "21.1"],
+      "versions" : ["19.2.0.00.18", "20.1.0.00.13", "20.2.0.00.20", "21.1.0-13"],
       "plugin" : {
         "internalName" : "DEV.HARTENFELLER.SLIDEOVER",
         "type" : "region",
