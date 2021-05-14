@@ -17,6 +17,8 @@ Internet Explorer is not supported!
 
 ## Usage
 
+[YouTube Tutorial](https://www.youtube.com/watch?v=sU8LlBcXP4I)
+
 ### Import Plug-In
 
 - [Download Plug-In](https://github.com/phartenfeller/apex-slide-over-plugin/releases/download/v1.0/region_type_plugin_dev_hartenfeller_slideover.sql)
