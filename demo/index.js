@@ -1684,26 +1684,25 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
       width = _ref.width,
       direction = _ref.direction;
   var mustResize = true;
-  console.log({
+  apex.debug.info('slideover props', {
     regionId: regionId,
     title: title,
     width: width
   });
 
   try {
-    var region = document.querySelector("#".concat(regionId));
-    var parentNode = region.parentNode; // add slot attribute to use inside slideover web component
+    var region = document.querySelector("#".concat(regionId)); // add slot attribute to use inside slideover web component
 
     region.slot = 'content'; // create web component instance
 
     var ele = document.createElement('slide-over');
-    ele.header = title;
     ele.open = 'false';
+    ele.header = title;
     ele.width = width;
-    ele.direction = direction;
-    ele.appendChild(region); // move slotted apex plug-in region inside the web component
+    ele.direction = direction; // move slotted apex plug-in region inside the web component
 
-    parentNode.appendChild(ele);
+    ele.appendChild(region);
+    document.querySelector('body').appendChild(ele); // parentNode.appendChild(ele);
   } catch (e) {
     console.error("Cannot setup Slideover Plug-In\n".concat(e));
   } // resize interactive grids that otherwise look out of place
