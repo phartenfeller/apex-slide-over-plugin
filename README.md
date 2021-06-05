@@ -27,7 +27,7 @@ Internet Explorer is not supported!
 ### Region
 
 - Create a region of the type "Slideover [Plug-In]"
-- Change Layout -> Position to "Body1"
+- Change Layout -> Position to "Inline Dialogs"
 - Put your desired child regions into the created plug-in region
 - Change settings under the region attributes (optional)
 
