@@ -21,13 +21,13 @@ Internet Explorer is not supported!
 
 ### Import Plug-In
 
-- [Download Plug-In](https://github.com/phartenfeller/apex-slide-over-plugin/releases/download/v1.0/region_type_plugin_dev_hartenfeller_slideover.sql)
+- [Download Plug-In](https://github.com/phartenfeller/apex-slide-over-plugin/releases/download/v1.1/region_type_plugin_dev_hartenfeller_slideover.sql)
 - Import the downloaded SQL file in your APEX App in the shared components -> Plug-ins -> import
 
 ### Region
 
 - Create a region of the type "Slideover [Plug-In]"
-- Change Layout -> Position to "Body1"
+- Change Layout -> Position to "Inline Dialogs"
 - Put your desired child regions into the created plug-in region
 - Change settings under the region attributes (optional)
 

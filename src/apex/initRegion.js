@@ -4,24 +4,26 @@
 // and move the existing rest into it as a slot
 const initAPEXRegion = ({ regionId, title, width, direction }) => {
   let mustResize = true;
-  console.log({ regionId, title, width });
+
+  apex.debug.info('slideover props', { regionId, title, width });
+
   try {
     const region = document.querySelector(`#${regionId}`);
-    const { parentNode } = region;
 
     // add slot attribute to use inside slideover web component
     region.slot = 'content';
 
     // create web component instance
     const ele = document.createElement('slide-over');
-    ele.header = title;
     ele.open = 'false';
+    ele.header = title;
     ele.width = width;
     ele.direction = direction;
+    // move slotted apex plug-in region inside the web component
     ele.appendChild(region);
 
-    // move slotted apex plug-in region inside the web component
-    parentNode.appendChild(ele);
+    document.querySelector('body').appendChild(ele);
+    // parentNode.appendChild(ele);
   } catch (e) {
     console.error(`Cannot setup Slideover Plug-In\n${e}`);
   }
