@@ -22,9 +22,10 @@ const initAPEXRegion = ({ regionId, title, width, direction }) => {
     // move slotted apex plug-in region inside the web component
     ele.appendChild(region);
 
-    document.querySelector('body').appendChild(ele);
+    document.querySelector('#wwvFlowForm').appendChild(ele);
     // parentNode.appendChild(ele);
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(`Cannot setup Slideover Plug-In\n${e}`);
   }
 
