@@ -42,6 +42,12 @@ apex.region('regionStaticID').open();
 apex.region('regionStaticID').close();
 ```
 
+### Change title dynamically
+
+```js
+apex.region('staticId').setTitle('New Title');
+```
+
 ## Styling
 
 ### APEX 21.1
