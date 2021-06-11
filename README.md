@@ -21,7 +21,7 @@ Internet Explorer is not supported!
 
 ### Import Plug-In
 
-- [Download Plug-In](https://github.com/phartenfeller/apex-slide-over-plugin/releases/download/v1.1/region_type_plugin_dev_hartenfeller_slideover.sql)
+- [Download Plug-In](https://github.com/phartenfeller/apex-slide-over-plugin/releases/download/v1.2/region_type_plugin_dev_hartenfeller_slideover.sql)
 - Import the downloaded SQL file in your APEX App in the shared components -> Plug-ins -> import
 
 ### Region
