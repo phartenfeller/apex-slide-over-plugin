@@ -1689,6 +1689,7 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
     title: title,
     width: width
   });
+  var elementId = "slideover_".concat(regionId);
 
   try {
     var region = document.querySelector("#".concat(regionId)); // add slot attribute to use inside slideover web component
@@ -1696,14 +1697,16 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
     region.slot = 'content'; // create web component instance
 
     var ele = document.createElement('slide-over');
+    ele.id = elementId;
     ele.open = 'false';
     ele.header = title;
     ele.width = width;
     ele.direction = direction; // move slotted apex plug-in region inside the web component
 
     ele.appendChild(region);
-    document.querySelector('body').appendChild(ele); // parentNode.appendChild(ele);
+    document.querySelector('#wwvFlowForm').appendChild(ele); // parentNode.appendChild(ele);
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error("Cannot setup Slideover Plug-In\n".concat(e));
   } // resize interactive grids that otherwise look out of place
 
@@ -1736,10 +1739,13 @@ var initAPEXRegion = function initAPEXRegion(_ref) {
       } // set property "open" of web component
 
 
-      document.querySelector("#".concat(regionId)).closest('slide-over').open = 'true';
+      document.getElementById(elementId).open = 'true';
     },
     close: function close() {
-      document.querySelector("#".concat(regionId)).closest('slide-over').open = 'false';
+      document.getElementById(elementId).open = 'false';
+    },
+    setTitle: function setTitle(newTitle) {
+      document.getElementById(elementId).header = newTitle;
     },
     // needed for check if region can be opened / closed
     widgetFullName: 'Slideover-Widget'

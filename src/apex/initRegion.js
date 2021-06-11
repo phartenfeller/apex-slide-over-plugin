@@ -7,6 +7,8 @@ const initAPEXRegion = ({ regionId, title, width, direction }) => {
 
   apex.debug.info('slideover props', { regionId, title, width });
 
+  const elementId = `slideover_${regionId}`;
+
   try {
     const region = document.querySelector(`#${regionId}`);
 
@@ -15,6 +17,7 @@ const initAPEXRegion = ({ regionId, title, width, direction }) => {
 
     // create web component instance
     const ele = document.createElement('slide-over');
+    ele.id = elementId;
     ele.open = 'false';
     ele.header = title;
     ele.width = width;
@@ -22,9 +25,10 @@ const initAPEXRegion = ({ regionId, title, width, direction }) => {
     // move slotted apex plug-in region inside the web component
     ele.appendChild(region);
 
-    document.querySelector('body').appendChild(ele);
+    document.querySelector('#wwvFlowForm').appendChild(ele);
     // parentNode.appendChild(ele);
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(`Cannot setup Slideover Plug-In\n${e}`);
   }
 
@@ -58,12 +62,13 @@ const initAPEXRegion = ({ regionId, title, width, direction }) => {
         mustResize = false;
       }
       // set property "open" of web component
-      document.querySelector(`#${regionId}`).closest('slide-over').open =
-        'true';
+      document.getElementById(elementId).open = 'true';
     },
     close() {
-      document.querySelector(`#${regionId}`).closest('slide-over').open =
-        'false';
+      document.getElementById(elementId).open = 'false';
+    },
+    setTitle(newTitle) {
+      document.getElementById(elementId).header = newTitle;
     },
     // needed for check if region can be opened / closed
     widgetFullName: 'Slideover-Widget',
