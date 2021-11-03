@@ -1,5 +1,13 @@
 # Oracle APEX Slideover Plug-In
 
+**=== Update ===**
+
+With release 21.2 Slideovers (or Drawers) are now natively included within APEX making this Plug-In obsolete. An example is [in the Universal Theme App](https://apex.oracle.com/pls/apex/apex_pm/r/ut/page-drawer).
+
+My Plug-In will now enter **maintenance mode**. Please **migrate to the APEX included solution** when you can.
+
+**==============**
+
 Region Plug-In for content that slides in from the side.
 
 ![demo video](./assets/demo.gif)
